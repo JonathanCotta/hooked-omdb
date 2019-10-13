@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DEFAULT_PLACEHOLDER_IMAGE = 'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
+const DEFAULT_PLACEHOLDER_IMAGE = 'https://365psd.com/images/istock/previews/1012/101282869-white-blank-poster-mockup.jpg';
 
 const getPoster = (Poster) => (Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : Poster);
 
