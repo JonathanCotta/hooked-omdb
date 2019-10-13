@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #212121;
   height: 70px;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,8 @@
 
 .App-intro {
   font-size: large;
+  color: white;
+  font-weight: bolder;
 }
 
 /* new css for movie component */
@@ -30,10 +32,15 @@
   box-sizing: border-box;
 }
 
+body, html {
+  background-color: #484848;
+}
+
 .movies {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  color: white;
 }
 
 .App-header h2 {
@@ -73,9 +80,11 @@
 
 input[type="submit"] {
   padding: 5px;
-  background-color: transparent;
+  background-color: white;
   color: black;
-  border: 1px solid black;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 4px;
   width: 80px;
   margin-left: 5px;
   cursor: pointer;
@@ -88,10 +97,16 @@ input[type="submit"]:hover {
 }
 
 
-.search > input[type="text"]{
+.search > input[type="text"] {
   width: 40%;
   min-width: 170px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-weight: bolder;
 }
+
 
 @media screen and (min-width: 694px) and (max-width: 915px) {
   .movie {
