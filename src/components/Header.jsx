@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const Header = ({ text }) => (
   <header className="App-header">
     <h2>{text}</h2>
