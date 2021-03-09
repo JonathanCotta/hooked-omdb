@@ -15,7 +15,6 @@ const initialState = {
   errorMessage: null,
 };
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SEARCH_MOVIES_REQUEST':
@@ -77,6 +76,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;
