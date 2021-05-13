@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import axios from 'axios';
 
 import '../App.css';
@@ -43,11 +43,6 @@ const reducer = (state, action) => {
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    axios.get(`${OMDB_URL}${API_KEY_FIELD}`)
-      .then((res) => dispatch({ type: 'SEARCH_MOVIES_SUCCESS', payload: res.Search }));
-  }, []);
 
   const search = (searchValue) => {
     dispatch({ type: 'SEARCH_MOVIES_REQUEST' });
