@@ -15,19 +15,6 @@
   cursor: pointer;
 }
 
-.spinner {
-  height: 80px;
-  margin: auto;
-}
-
-.App-intro {
-  font-size: large;
-  color: white;
-  font-weight: bolder;
-}
-
-/* new css for movie component */
-
 * {
   box-sizing: border-box;
 }
