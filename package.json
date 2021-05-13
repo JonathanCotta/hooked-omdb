@@ -2,6 +2,7 @@
   "name": "hooked",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./build/",
   "dependencies": {
     "axios": "^0.21.1",
     "eslint": "^7.21.0",
