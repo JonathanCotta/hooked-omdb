@@ -6,8 +6,9 @@ import Header from './Header';
 import Movie from './Movie';
 import Search from './Search';
 
-const OMDB_API = 'https://www.omdbapi.com/?';
-const API_KEY = 'apikey=98044d12';
+const OMDB_URL = 'https://www.omdbapi.com/?';
+const OMDB_KEY = process.env.REACT_APP_OMDB_API_KEY;
+const API_KEY_FIELD = `apikey=${OMDB_KEY}`;
 
 const initialState = {
   loading: true,
@@ -44,14 +45,14 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    axios.get(`${OMDB_API}${API_KEY}`)
+    axios.get(`${OMDB_URL}${API_KEY_FIELD}`)
       .then((res) => dispatch({ type: 'SEARCH_MOVIES_SUCCESS', payload: res.Search }));
   }, []);
 
   const search = (searchValue) => {
     dispatch({ type: 'SEARCH_MOVIES_REQUEST' });
 
-    axios.get(`${OMDB_API}s=${searchValue}&${API_KEY}`)
+    axios.get(`${OMDB_URL}s=${searchValue}&${API_KEY_FIELD}`)
       .then((res) => {
         const action = res.data.Response === 'True' ? { type: 'SEARCH_MOVIES_SUCCESS', payload: res.data.Search } : { type: 'SEARCH_MOVIES_FAILURE', payload: res.data.Error };
 
