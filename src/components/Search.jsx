@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSearchInputChanges = (e) => setSearchValue(e.target.value);
+  const handleSearchInputChanges = (event) => setSearchValue(event.target.value);
 
   const resetInputField = () => setSearchValue('');
 
-  const callSearchFunction = (e) => {
-    e.preventDefault();
+  const callSearchFunction = (event) => {
+    event.preventDefault();
     props.search(searchValue);
     resetInputField();
   };
