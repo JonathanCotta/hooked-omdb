@@ -5,51 +5,24 @@ import '../App.css';
 import Header from './Header';
 import Movie from './Movie';
 import Search from './Search';
+import { reducer, initialState } from '../reducers/MoviesReducer';
 
 const OMDB_URL = 'https://www.omdbapi.com/?';
 const OMDB_KEY = process.env.REACT_APP_OMDB_API_KEY;
 const API_KEY_FIELD = `apikey=${OMDB_KEY}`;
 
-const initialState = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'SEARCH_MOVIES_REQUEST':
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case 'SEARCH_MOVIES_SUCCESS':
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case 'SEARCH_MOVIES_FAILURE':
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const search = (searchValue) => {
-    dispatch({ type: 'SEARCH_MOVIES_REQUEST' });
+    dispatch({ type: 'SEARCH_MOVIES' });
 
     axios.get(`${OMDB_URL}s=${searchValue}&${API_KEY_FIELD}`)
-      .then((res) => {
-        const action = res.data.Response === 'True' ? { type: 'SEARCH_MOVIES_SUCCESS', payload: res.data.Search } : { type: 'SEARCH_MOVIES_FAILURE', payload: res.data.Error };
+      .then((response) => {
+        const { data } = response;
+        const action = data.Response === 'True'
+          ? { type: 'SEARCH_MOVIES_SUCCESS', payload: data.Search }
+          : { type: 'SEARCH_MOVIES_FAILURE', payload: data.Error };
 
         dispatch(action);
       });
