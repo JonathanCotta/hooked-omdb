@@ -5,13 +5,13 @@ const DEFAULT_PLACEHOLDER_IMAGE = 'https://365psd.com/images/istock/previews/101
 
 const getPoster = (Poster) => (Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : Poster);
 
-const Movie = ({ movie: { Title, Year, Poster } }) => (
-  <div className="movie">
+const Show = ({ show: { Title, Year, Poster } }) => (
+  <div className="show">
     <h2>{Title}</h2>
     <div>
       <img
         width="200"
-        alt={`The movie titled: ${Title}`}
+        alt={`The show titled: ${Title}`}
         src={getPoster(Poster)}
       />
     </div>
@@ -21,12 +21,12 @@ const Movie = ({ movie: { Title, Year, Poster } }) => (
   </div>
 );
 
-Movie.propTypes = {
-  movie: PropTypes.shape({
+Show.propTypes = {
+  show: PropTypes.shape({
     Title: PropTypes.string,
     Year: PropTypes.string,
     Poster: PropTypes.string,
   }).isRequired,
 };
 
-export default Movie;
+export default Show;

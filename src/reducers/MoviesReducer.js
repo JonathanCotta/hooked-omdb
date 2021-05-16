@@ -1,6 +1,6 @@
 export const initialState = {
   loading: false,
-  movies: [],
+  shows: [],
   errorMessage: null,
 };
 
@@ -16,7 +16,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        movies: action.payload,
+        shows: action.payload,
       };
     case 'SEARCH_MOVIES_FAILURE':
       return {
